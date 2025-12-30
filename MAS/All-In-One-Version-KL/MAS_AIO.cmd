@@ -494,7 +494,7 @@ echo:       ║       [0] Exit                                               ║
 echo:       ║                                                              ║
 echo:       ╚══════════════════════════════════════════════════════════════╝
 echo:
-call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1-8, E, H, 0] :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1-8,E,H,0] :"
 choice /C:12345678EH0 /N
 set _erl=%errorlevel%
 
@@ -546,7 +546,7 @@ echo:       ║       [0] Go to Main Menu                                    ║
 echo:       ║                                                              ║
 echo:       ╚══════════════════════════════════════════════════════════════╝
 echo:
-call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1, 2, 0] :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1,2,0] :"
 choice /C:120 /N
 set _erl=%errorlevel%
 
@@ -602,7 +602,7 @@ echo:       ║       [0] Go Back                                               
 echo:       ║                                                                    ║
 echo:       ╚════════════════════════════════════════════════════════════════════╝
 echo:  
-call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1-7,R,0] :"
 choice /C:1234567R0 /N
 set _erl=%errorlevel%
 
@@ -16079,7 +16079,7 @@ echo:       ║       [0] %_exitmsg%                                            
 echo:       ║                                                               ║
 echo:       ╚═══════════════════════════════════════════════════════════════╝
 echo:          
-call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1-6,0] :"
 choice /C:1234560 /N
 set _erl=%errorlevel%
 
