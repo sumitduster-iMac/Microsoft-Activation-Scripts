@@ -575,6 +575,9 @@ goto :Extras
 
 :Extract$OEM$2
 
+::  Note: This menu uses a wider box (72 chars) than other menus (64 chars)
+::  to accommodate longer option descriptions like "[6] HWID + Ohook + TSforge"
+
 cls
 title  Extract $OEM$ Folder
 if not defined terminal mode 78, 34
