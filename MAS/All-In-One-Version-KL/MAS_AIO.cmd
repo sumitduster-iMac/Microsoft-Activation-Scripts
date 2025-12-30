@@ -577,28 +577,32 @@ goto :Extras
 
 cls
 title  Extract $OEM$ Folder
-if not defined terminal mode 78, 30
+if not defined terminal mode 78, 34
 echo:
 echo:
+echo:       ╔════════════════════════════════════════════════════════════════════╗
+call :dk_color2 %_White% "       ║          " %_Green% "EXTRACT $OEM$ FOLDER ON THE DESKTOP" %_White% "             ║"
+echo:       ╚════════════════════════════════════════════════════════════════════╝
 echo:
-echo:
-echo:                     Extract $OEM$ folder on the desktop           
-echo:         ____________________________________________________________
-echo:
-echo:            [1] HWID       [Windows]
-echo:            [2] Ohook      [Office]
-echo:            [3] TSforge    [Windows / ESU / Office]
-echo:            [4] Online KMS [Windows / Office]
-echo:
-echo:            [5] HWID       [Windows] ^+ Ohook [Office]
-echo:            [6] HWID       [Windows] ^+ Ohook [Office] ^+ TSforge [ESU]
-echo:            [7] TSforge    [Windows / ESU] ^+ Ohook [Office]
-echo:
-call :dk_color2 %_White% "            [R] " %_Green% "ReadMe"
-echo:            [0] Go Back
-echo:         ____________________________________________________________
+echo:       ╔════════════════════════════════════════════════════════════════════╗
+echo:       ║                                                                    ║
+echo:       ║       [1] HWID       [Windows]                                     ║
+echo:       ║       [2] Ohook      [Office]                                      ║
+echo:       ║       [3] TSforge    [Windows / ESU / Office]                      ║
+echo:       ║       [4] Online KMS [Windows / Office]                            ║
+echo:       ║                                                                    ║
+echo:       ║       [5] HWID       [Windows] + Ohook [Office]                    ║
+echo:       ║       [6] HWID       [Windows] + Ohook [Office] + TSforge [ESU]    ║
+echo:       ║       [7] TSforge    [Windows / ESU] + Ohook [Office]              ║
+echo:       ║                                                                    ║
+echo:       ╠════════════════════════════════════════════════════════════════════╣
+echo:       ║                                                                    ║
+call :dk_color2 %_White% "       ║       [R] " %_Green% "ReadMe" %_White% "                                                     ║"
+echo:       ║       [0] Go Back                                                  ║
+echo:       ║                                                                    ║
+echo:       ╚════════════════════════════════════════════════════════════════════╝
 echo:  
-call :dk_color2 %_White% "             " %_Green% "Choose a menu option using your keyboard :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard :"
 choice /C:1234567R0 /N
 set _erl=%errorlevel%
 
