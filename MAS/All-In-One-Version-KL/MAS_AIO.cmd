@@ -16052,29 +16052,34 @@ set "line=______________________________________________________________________
 
 cls
 title  Troubleshoot %masver%
-if not defined terminal mode 77, 30
+if not defined terminal mode 77, 34
 
 echo:
 echo:
+echo:       ╔═══════════════════════════════════════════════════════════════╗
+call :dk_color2 %_White% "       ║                    " %_Green% "TROUBLESHOOT MENU" %_White% "                     ║"
+echo:       ╚═══════════════════════════════════════════════════════════════╝
 echo:
-echo:
-echo:       _______________________________________________________________
-echo:                                                   
-call :dk_color2 %_White% "             [1] " %_Green% "Help"
-echo:             ___________________________________________________
-echo:                                                                      
-echo:             [2] Dism RestoreHealth
-echo:             [3] SFC Scannow
-echo:                                                                      
-echo:             [4] Fix WMI
-echo:             [5] Fix Licensing
-echo:             [6] Fix WPA Registry
-echo:             ___________________________________________________
-echo:
-echo:             [0] %_exitmsg%
-echo:       _______________________________________________________________
+echo:       ╔═══════════════════════════════════════════════════════════════╗
+echo:       ║                                                               ║
+call :dk_color2 %_White% "       ║       [1] " %_Green% "Help" %_White% "                                                 ║"
+echo:       ║                                                               ║
+echo:       ╠═══════════════════════════════════════════════════════════════╣
+echo:       ║                                                               ║
+echo:       ║       [2] Dism RestoreHealth                                  ║
+echo:       ║       [3] SFC Scannow                                         ║
+echo:       ║                                                               ║
+echo:       ║       [4] Fix WMI                                             ║
+echo:       ║       [5] Fix Licensing                                       ║
+echo:       ║       [6] Fix WPA Registry                                    ║
+echo:       ║                                                               ║
+echo:       ╠═══════════════════════════════════════════════════════════════╣
+echo:       ║                                                               ║
+echo:       ║       [0] %_exitmsg%                                               ║
+echo:       ║                                                               ║
+echo:       ╚═══════════════════════════════════════════════════════════════╝
 echo:          
-call :dk_color2 %_White% "            " %_Green% "Choose a menu option using your keyboard :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard :"
 choice /C:1234560 /N
 set _erl=%errorlevel%
 
