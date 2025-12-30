@@ -422,7 +422,7 @@ goto dk_done
 cls
 color 07
 title  Microsoft %blank%Activation %blank%Scripts %masver%
-if not defined terminal mode 76, 34
+if not defined terminal mode 76, 38
 
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" set _serexist=1
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-*EvalEdition~*.mum" set _evalexist=1
@@ -447,46 +447,54 @@ if not defined _ohookgo set _tsforgego=1
 
 echo:
 echo:
+echo:       ╔══════════════════════════════════════════════════════════════╗
+call :dk_color2 %_White% "       ║        " %_Green% "MICROSOFT ACTIVATION SCRIPTS" %_White% " %masver%              ║"
+echo:       ╚══════════════════════════════════════════════════════════════╝
+echo:
 echo:
 if %winbuild% GEQ 10240 if %winbuild% LEQ 19045 if not defined _serexist if not defined _evalexist if not defined _ltscexist (
-call :dk_color2 %_Green% "       Tip:" %_White% " To activate ESU updates after W10 EOL, use TSforge option."
+call :dk_color2 %_Green% "         Tip:" %_White% " To activate ESU updates after W10 EOL, use TSforge option."
 )
 echo:
-echo:
-echo:       ______________________________________________________________
-echo:
-echo:                 Activation Methods:
-echo:
+echo:       ╔══════════════════════════════════════════════════════════════╗
+echo:       ║                                                              ║
+call :dk_color2 %_White% "       ║           " %_Green% "ACTIVATION METHODS" %_White% "                              ║"
+echo:       ║                                                              ║
+echo:       ╠══════════════════════════════════════════════════════════════╣
+echo:       ║                                                              ║
 if defined _hwidgo (
-call :dk_color3 %_White% "             [1] " %_Green% "HWID" %_White% "                - Windows"
+call :dk_color3 %_White% "       ║       [1] " %_Green% "HWID" %_White% "                 - Windows                ║"
 ) else (
-echo:             [1] HWID                - Windows
+echo:       ║       [1] HWID                 - Windows                ║
 )
 if defined _ohookgo (
-call :dk_color3 %_White% "             [2] " %_Green% "Ohook" %_White% "               - Office"
+call :dk_color3 %_White% "       ║       [2] " %_Green% "Ohook" %_White% "                - Office                 ║"
 ) else (
-echo:             [2] Ohook               - Office
+echo:       ║       [2] Ohook                - Office                 ║
 )
 if defined _tsforgego (
-call :dk_color3 %_White% "             [3] " %_Green% "TSforge" %_White% "             - Windows / Office / ESU"
+call :dk_color3 %_White% "       ║       [3] " %_Green% "TSforge" %_White% "              - Windows / Office / ESU  ║"
 ) else (
-echo:             [3] TSforge             - Windows / Office / ESU
+echo:       ║       [3] TSforge              - Windows / Office / ESU  ║
 )
-echo:             [4] Online KMS          - Windows / Office
-echo:             __________________________________________________ 
+echo:       ║       [4] Online KMS           - Windows / Office       ║
+echo:       ║                                                              ║
+echo:       ╠══════════════════════════════════════════════════════════════╣
+echo:       ║                                                              ║
+echo:       ║       [5] Check Activation Status                            ║
+echo:       ║       [6] Change Windows Edition                             ║
+echo:       ║       [7] Change Office Edition                              ║
+echo:       ║                                                              ║
+echo:       ╠══════════════════════════════════════════════════════════════╣
+echo:       ║                                                              ║
+echo:       ║       [8] Troubleshoot                                       ║
+echo:       ║       [E] Extras                                             ║
+echo:       ║       [H] Help                                               ║
+echo:       ║       [0] Exit                                               ║
+echo:       ║                                                              ║
+echo:       ╚══════════════════════════════════════════════════════════════╝
 echo:
-echo:             [5] Check Activation Status
-echo:             [6] Change Windows Edition
-echo:             [7] Change Office Edition
-echo:             __________________________________________________      
-echo:
-echo:             [8] Troubleshoot
-echo:             [E] Extras
-echo:             [H] Help
-echo:             [0] Exit
-echo:       ______________________________________________________________
-echo:
-call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1,2,3...E,H,0] :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1-8, E, H, 0] :"
 choice /C:12345678EH0 /N
 set _erl=%errorlevel%
 
@@ -522,19 +530,23 @@ if not defined terminal mode 76, 30
 echo:
 echo:
 echo:
+echo:       ╔══════════════════════════════════════════════════════════════╗
+call :dk_color2 %_White% "       ║                      " %_Green% "EXTRAS MENU" %_White% "                        ║"
+echo:       ╚══════════════════════════════════════════════════════════════╝
 echo:
+echo:       ╔══════════════════════════════════════════════════════════════╗
+echo:       ║                                                              ║
+echo:       ║       [1] Extract $OEM$ Folder                               ║
+echo:       ║                                                              ║
+echo:       ║       [2] Download Genuine Windows / Office                  ║
+echo:       ║                                                              ║
+echo:       ╠══════════════════════════════════════════════════════════════╣
+echo:       ║                                                              ║
+echo:       ║       [0] Go to Main Menu                                    ║
+echo:       ║                                                              ║
+echo:       ╚══════════════════════════════════════════════════════════════╝
 echo:
-echo:           ______________________________________________________
-echo:           
-echo:                [1] Extract $OEM$ Folder
-echo:                  
-echo:                [2] Download Genuine Windows / Office 
-echo:                ____________________________________________      
-echo:                                                                          
-echo:                [0] Go to Main Menu
-echo:           ______________________________________________________
-echo:
-call :dk_color2 %_White% "             " %_Green% "Choose a menu option using your keyboard [1,2,0] :"
+call :dk_color2 %_White% "         " %_Green% "Choose a menu option using your keyboard [1, 2, 0] :"
 choice /C:120 /N
 set _erl=%errorlevel%
 
