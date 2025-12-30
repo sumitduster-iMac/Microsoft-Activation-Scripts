@@ -422,7 +422,7 @@ goto dk_done
 cls
 color 07
 title  Microsoft %blank%Activation %blank%Scripts %masver%
-if not defined terminal mode 76, 38
+if not defined terminal mode 78, 38
 
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-Server*Edition~*.mum" set _serexist=1
 if exist "%SystemRoot%\Servicing\Packages\Microsoft-Windows-*EvalEdition~*.mum" set _evalexist=1
@@ -526,7 +526,7 @@ exit /b
 
 cls
 title  Extras
-if not defined terminal mode 76, 30
+if not defined terminal mode 78, 32
 echo:
 echo:
 echo:
@@ -16052,7 +16052,7 @@ set "line=______________________________________________________________________
 
 cls
 title  Troubleshoot %masver%
-if not defined terminal mode 77, 34
+if not defined terminal mode 78, 34
 
 echo:
 echo:
